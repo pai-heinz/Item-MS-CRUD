@@ -14,23 +14,26 @@
 </style>
 </head>
 <body>
-	<center><jsp:include page="header.html"></jsp:include></center><br>
-
+	<center>
+	<jsp:include page="header.html"></jsp:include>
+	<div style="color: red;">${error }</div>
+	</center><br>
+	
 	<form action="addItemServlet" method="post">
 		<table class="center table">
 			<tr>
 				<td>Item Code</td>
-				<td> <input type="text" name="code"> </td>
+				<td> <input type="text" name="code" value="${bean.itemCode }"> </td>
 			</tr>
 			
 			<tr>
 				<td>Item Name</td>
-				<td> <input type="text" name="name"> </td>
+				<td> <input type="text" name="name" value="${bean.itemName }"> </td>
 			</tr>
 			
 			<tr>
 				<td>Item Price</td>
-				<td> <input type="text" name="price"> </td>
+				<td> <input type="text" name="price" value="${bean.itemPrice }"> </td>
 			</tr>
 			
 			<tr> 

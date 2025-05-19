@@ -56,6 +56,7 @@ public class addItemServlet extends HttpServlet {
 			dto.setItemName(bean.getItemName());
 			dto.setItemPrice(Double.valueOf(bean.getItemPrice()));
 			dao.addData(dto);
+			response.sendRedirect("displayItemServlet");
 		}
 	}
 
