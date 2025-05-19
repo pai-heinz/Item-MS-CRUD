@@ -14,12 +14,13 @@ public class itemDao {
 	
 	public void addData(itemRequestDto dto) {
 		String query = "insert into item (item_code,item_name,item_price) values(?,?,?)";
-		try {
+		try { 
 			PreparedStatement stmt = con.prepareStatement(query);
 			stmt.setString(1, dto.getItemCode());
 			stmt.setString(2, dto.getItemName());
 			stmt.setDouble(3, dto.getItemPrice());
 			stmt.executeUpdate();
+			System.out.println("Adding successful");
 		} catch (SQLException e) {
 			System.out.println("Error occured while adding");
 		}
