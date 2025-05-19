@@ -29,6 +29,18 @@ public class itemDao {
 		}
 	}
 	
+	public void deleteData(itemRequestDto dto) {
+		String query = "delete from item where item_code=?";
+		try {
+			PreparedStatement stmt = con.prepareStatement(query);
+			stmt.setString(1, dto.getItemCode());
+			stmt.executeUpdate();
+			System.out.println("Deleting successful");
+		} catch (SQLException e) {
+			System.out.println("Error occured while deleting");
+		}
+	}
+	
 	public ArrayList<itemResponseDto> selectAll(){
 		ArrayList <itemResponseDto> list = new ArrayList();
 		String query = "select * from item";

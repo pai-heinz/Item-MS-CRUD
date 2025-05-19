@@ -24,7 +24,7 @@
 				<td>${data.itemName }</td>
 				<td>${data.itemPrice }</td>
 				<td>
-					<a href="">Update</a> | <a href="">Delete</a>
+					<a href="">Update</a> | <a href="deleteItemServlet?code=${data.itemCode }">Delete</a>
 				</td>
 			</tr>
 		</c:forEach>
