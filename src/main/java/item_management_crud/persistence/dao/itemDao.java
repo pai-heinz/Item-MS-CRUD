@@ -29,6 +29,20 @@ public class itemDao {
 		}
 	}
 	
+	public void updateData(itemRequestDto dto) {
+		String query = "update item set item_name=?,item_price=? where item_code=?";
+		try {
+			PreparedStatement stmt = con.prepareStatement(query);
+			stmt.setString(1, dto.getItemName());
+			stmt.setDouble(2, dto.getItemPrice());
+			stmt.setString(3, dto.getItemCode());
+			stmt.executeUpdate();
+			System.out.println("Updating successful");
+		} catch (SQLException e) {
+			System.out.println("Error occured while updating");
+		}
+	}
+	
 	public void deleteData(itemRequestDto dto) {
 		String query = "delete from item where item_code=?";
 		try {
@@ -39,6 +53,24 @@ public class itemDao {
 		} catch (SQLException e) {
 			System.out.println("Error occured while deleting");
 		}
+	}
+	
+	public itemResponseDto selectOne(itemRequestDto dto) {
+		itemResponseDto res = new itemResponseDto();
+		String query = "select * from item where item_code=?";
+		try {
+			PreparedStatement stmt = con.prepareStatement(query);
+			stmt.setString(1, dto.getItemCode());
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				res.setItemCode(rs.getString("item_code"));
+				res.setItemName(rs.getString("item_name"));
+				res.setItemPrice(rs.getDouble("item_price"));
+			}
+		} catch (SQLException e) {
+			System.out.println("Error occured while selecting one row");
+		}
+		return res;
 	}
 	
 	public ArrayList<itemResponseDto> selectAll(){

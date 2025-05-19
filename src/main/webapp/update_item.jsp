@@ -19,26 +19,26 @@
 		<div style="color: red;">${error }</div>
 	</center><br>
 	
-	<form action="addItemServlet" method="post">
+	<form action="updateItemServlet" method="post">
 		<table class="center table">
 			<tr>
 				<td>Item Code</td>
-				<td> <input type="text" name="code" value="${bean.itemCode }"> </td>
+				<td> <input type="text" name="code" value="${res.itemCode }" readonly> </td>
 			</tr>
 			
 			<tr>
 				<td>Item Name</td>
-				<td> <input type="text" name="name" value="${bean.itemName }"> </td>
+				<td> <input type="text" name="name" value="${res.itemName }"> </td>
 			</tr>
 			
 			<tr>
 				<td>Item Price</td>
-				<td> <input type="text" name="price" value="${bean.itemPrice }"> </td>
+				<td> <input type="text" name="price" value="${res.itemPrice }"> </td>
 			</tr>
 			
 			<tr> 
 				<td></td>
-				<td> <input type="submit" value="Add" class="btn btn-primary"> </td>
+				<td> <input type="submit" value="Update" class="btn btn-warning"> </td>
 			</tr>
 		</table>
 	</form>

@@ -7,10 +7,17 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <title>Item Management</title>
+<style type="text/css">
+	.color{
+		height: 100vh;
+	}
+</style>
 </head>
-<body>
+<body >
 	<center><jsp:include page="header.html"></jsp:include></center>
-	<table class="table table-bordered">
+	<br>
+	
+	<table class="table table-bordered"  >
 		<tr>
 			<th>Item Code</th>
 			<th>Item Name</th>
@@ -24,7 +31,7 @@
 				<td>${data.itemName }</td>
 				<td>${data.itemPrice }</td>
 				<td>
-					<a href="">Update</a> | <a href="deleteItemServlet?code=${data.itemCode }">Delete</a>
+					<a href="updateItemServlet?code=${data.itemCode }" class="btn btn-warning">Update</a> | <a href="deleteItemServlet?code=${data.itemCode }" class="btn btn-danger">Delete</a>
 				</td>
 			</tr>
 		</c:forEach>
